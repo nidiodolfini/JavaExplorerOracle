@@ -15,32 +15,50 @@ public class ShopApp {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
         double tax = 0.2;
         double total = 0;
+
+        System.out.println("Welcome to Duke Choice Shop ");
+
         Customer c1 = new Customer();
         c1.name = "Pinky";
-        System.out.println("Welcome to Duke Choice Shop " + c1.name);
-        
+        c1.size = "S";
+
+        System.out.println("Customer is " + c1.name);
+
         Clothing item1 = new Clothing();
         Clothing item2 = new Clothing();
-        
+        Clothing item3 = new Clothing();
+        Clothing item4 = new Clothing();
+        Clothing[] items = {item1, item2, item3, item4};
+
         item1.description = "Blue Jacket";
         item1.price = 20.9;
         item1.size = "M";
-        
+
         item2.description = "Orange T-Shirt";
         item2.price = 10.5;
         item2.size = "S";
-        
-        
-        System.out.println("Item one in: " + item1.description + " Price is " + item1.price + " and Size is " + item1.size);
-        System.out.println("Item two in: " + item2.description + " Price is " + item2.price + " and Size is " + item2.size);
-        total = (item1.price + (item2.price * 2));
-        Double totalTax = total * tax;
-        System.out.println(total + totalTax);
 
-        
+        item3.description = "Green scarf";
+        item3.price = 5;
+        item3.size = "S";
+
+        item4.description = "Blue T-Shirt";
+        item4.price = 10.5;
+        item4.size = "S";
+
+        for (Clothing item : items) {
+            if (item.size.equals(c1.size)) {
+                System.out.println(item.description + ", " + item.size + ", " + item.price);
+                total += item.price + (item.price * tax);
+                if (total > 15) {
+                    break;
+                }
+            }
+
+        }
+        System.out.println(total);
     }
-    
 }
