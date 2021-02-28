@@ -24,8 +24,8 @@ public class ShopApp {
         Customer c1 = new Customer();
         c1.setName("Pinky");
         c1.setSize("S");
-        c1.setSize(5);
-        
+        c1.setSize(3);
+        System.out.println(c1.getSize());
 
         System.out.println("Customer is " + c1.getName());
 
@@ -50,17 +50,13 @@ public class ShopApp {
         item4.setDescription("Blue T-Shirt");
         item4.setPrice(10.5);
         item4.setSize("S");
-
+        
+        c1.addItems(items);
+        System.out.println(c1.getTotalClothingCost());
         for (Clothing item : items) {
-            if (item.getSize().equals(c1.getSize())) {
-                System.out.println(item.getDescription() + ", " + item.getSize() + ", " + item.getPrice());
-                total += item.getPrice();
-//                if (total > 15) {
-//                    break;
-//                }
-            }
-
+            System.out.println(item.getDescription() + ", " + item.getSize() + ", " + item.getPrice());
         }
-        System.out.println(total);
+
     }
+
 }
